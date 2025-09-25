@@ -7,10 +7,12 @@ import java.util.regex.Matcher;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Advent of Code 2024 - Day 3 - Part 2");
+        
+        File inputFile = new File("2024/Day3/input.txt");
 
+        // Could probably do something a bit more clever so that you don't always look for mul(num,num) even when counting is disabled.
         String patternString = "do\\(\\)|don't\\(\\)|mul\\((\\d+),(\\d+)\\)";
         Pattern pattern = Pattern.compile(patternString);
-        File inputFile = new File("2024/Day3/input.txt");
 
         int sumTotal = 0;
         boolean enableCounting = false;
