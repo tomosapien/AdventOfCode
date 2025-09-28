@@ -5,9 +5,6 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Main {
-    // How many bad levels are tolerated in a report
-    private static final int FAULT_TOLERANCE = 1;
-
     public static void main(String[] args) {
         System.out.println("Advent of Code 2024 - Day 2 - Part 2");
 
