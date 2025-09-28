@@ -5,7 +5,6 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 import java.util.regex.Pattern;
-import java.util.regex.Matcher;
 
 public class Main {
     private static final ArrayList<ArrayList<Character>> grid = new ArrayList<>();
