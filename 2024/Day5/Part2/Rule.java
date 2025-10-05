@@ -32,6 +32,14 @@ public class Rule {
         return true;
     }
 
+    public int GetFirstNum() {
+        return firstNum;
+    }
+
+    public int GetSecondNum() {
+        return secondNum;
+    }
+
     @Override
     public String toString() {
         return firstNum + " | " + secondNum;

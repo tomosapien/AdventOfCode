@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.lang.reflect.Array;
 import java.util.Scanner;
 
 import java.util.ArrayList;
@@ -28,7 +29,7 @@ public class Main {
                     rules.add(new Rule(line));
                 } else {
                     // process input
-                    LinkedHashSet<Integer> input = new LinkedHashSet<>();
+                    ArrayList<Integer> input = new ArrayList<>();
                     for (String s : line.split(",")) {
 
                         input.add(Integer.valueOf(s.trim()));
@@ -47,7 +48,7 @@ public class Main {
         System.out.println("Sum of the middle values: " + sum);
     }
 
-    private static boolean IsCorrectlyOrdered(LinkedHashSet<Integer> input) {
+    private static boolean IsCorrectlyOrdered(ArrayList<Integer> input) {
         for (Rule r : rules) {
             if (!r.IsRuleMet(input)) {
                 return false;
