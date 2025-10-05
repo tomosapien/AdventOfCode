@@ -33,7 +33,7 @@ public class Main {
 
                         input.add(Integer.valueOf(s.trim()));
                     }
-                    if (IsCorrectlyOrdered(input) != null) {
+                    if (getFirstFailingRule(input) != null) {
 
                         // add to list of incorrect inputs
                         incorrectInputs.add(input);
@@ -52,7 +52,7 @@ public class Main {
             int attempts = 0;
             
             while(!corrected && attempts < maxAttempts) {
-                Rule incorrectRule = IsCorrectlyOrdered(input);
+                Rule incorrectRule = getFirstFailingRule(input);
                 
                 if (incorrectRule == null) {
                     corrected = true;
@@ -79,7 +79,7 @@ public class Main {
         System.out.println("Sum of middle values: " + sumOfMiddleValues);
     }
 
-    private static Rule IsCorrectlyOrdered(ArrayList<Integer> input) {
+    private static Rule getFirstFailingRule(ArrayList<Integer> input) {
         for (Rule r : rules) {
             
             if (!r.IsRuleMet(input)) {
