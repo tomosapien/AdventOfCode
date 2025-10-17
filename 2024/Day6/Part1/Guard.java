@@ -32,10 +32,10 @@ public class Guard {
 
     public void moveForward() {
         switch (this.orientation) {
-            case UP -> position.move(-1, 0);
-            case RIGHT -> position.move(0, 1);
-            case DOWN -> position.move(1, 0);
-            case LEFT -> position.move(0, -1);
+            case UP -> position = position.move(-1, 0);
+            case RIGHT -> position = position.move(0, 1);
+            case DOWN -> position = position.move(1, 0);
+            case LEFT -> position = position.move(0, -1);
         }
     }
 }

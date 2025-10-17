@@ -19,7 +19,8 @@ public class Main {
                 ArrayList<Character> row = new ArrayList<>();
                 for (char c : line.toCharArray()) {
                     if (c == '^' || c == 'v' || c == '>' || c == '<') {
-                        guard = new Guard(c, new Coordinate(grid.size(), row.size()));
+                        Coordinate start = new Coordinate(grid.size(), row.size());
+                        guard = new Guard(c, start);
                     }
                     row.add(c);
                 }
@@ -28,8 +29,8 @@ public class Main {
         } catch (FileNotFoundException e) {
             System.err.println("File not found: " + e.getMessage());
         }
-        Coordinate pos = guard.getPosition();
-        markX(pos.getX(), pos.getY());
+    Coordinate pos = guard.getPosition();
+    markX(pos.getX(), pos.getY());
 
         while (!onOuterEdge(guard.getPosition())) {
             Orientation guardOrientation = guard.getOrientation();
@@ -39,7 +40,9 @@ public class Main {
 
             if (isAccessable(xTarget, yTarget)) {
                 guard.moveForward();
-                markX(guardPosition.getX(), guardPosition.getY());
+                // guardPosition variable holds the old position; fetch updated position
+                Coordinate newPos = guard.getPosition();
+                markX(newPos.getX(), newPos.getY());
             } else {
                 System.out.println("Ran into obstacle on coordinates: (" + guardPosition.getX() + "," + guardPosition.getY() + ")");
                 System.out.println("Turning right");
